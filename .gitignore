@@ -3,4 +3,5 @@ __pycache__/
 data/raw/*.csv
 data/cleaned/*.csv
 data/processed/*.csv
+quality_log.json
 .DS_Store
