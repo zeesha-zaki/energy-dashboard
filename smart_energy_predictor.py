@@ -11,6 +11,24 @@ import numpy as np
 import pandas as pd
 import requests
 
+# Safe imports & Prefect fallback handlers
+try:
+    from prefect import flow, task
+except ImportError:
+    # Dummy fallback decorators when prefect is not installed
+    def flow(*args, **kwargs):
+        def decorator(func):
+            return func
+        if len(args) == 1 and callable(args[0]):
+            return args[0]
+        return decorator
+
+    def task(*args, **kwargs):
+        def decorator(func):
+            return func
+        if len(args) == 1 and callable(args[0]):
+            return args[0]
+        return decorator
 try:
     import streamlit as st
 except ImportError:
