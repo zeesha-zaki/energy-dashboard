@@ -2,7 +2,6 @@
 Smart Energy Demand Predictor
 HackInsight 2026 - Data-to-Decision
 """
-
 import hashlib
 import json
 from datetime import datetime, timezone
@@ -11,21 +10,17 @@ from pathlib import Path
 import numpy as np
 import pandas as pd
 import requests
-import streamlit as st
-from sklearn.ensemble import RandomForestRegressor
-from sklearn.metrics import mean_absolute_error, mean_squared_error, r2_score
 
-# Try importing Prefect for automated orchestration; fallback gracefully if not installed
 try:
-    from prefect import flow, task
-    PREFECT_AVAILABLE = True
+    import streamlit as st
 except ImportError:
-    PREFECT_AVAILABLE = False
-    def flow(name=None):
-        def decorator(fn):
-            return fn
-        return decorator
+    st = None
 
+try:
+    from sklearn.ensemble import RandomForestRegressor
+    from sklearn.metrics import mean_absolute_error, mean_squared_error, r2_score
+except ImportError:
+    RandomForestRegressor = None
 
 # -----------------------------
 # 1. PROJECT CONFIGURATION
