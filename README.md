@@ -1,14 +1,3 @@
----
-title: Energy Demand Predictor
-emoji: ⚡
-colorFrom: blue
-colorTo: green
-sdk: streamlit
-sdk_version: 1.32.0
-app_file: smart_energy_predictor.py
-pinned: false
-license: mit
----
 # ⚡ Smart Energy Demand Predictor
 > **HackInsight 2026 Data-to-Decision Project**
 
